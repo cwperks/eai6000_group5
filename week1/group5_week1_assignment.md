@@ -48,10 +48,14 @@ This is a sample of 1 row with headers explanation:
 | 1   | PAYMENT | 1060.31 | C429214117 | 1089.0         | 28.69          | M1591654462 | 0.0            | 0.0            | 0       | 0              |
 
 ### What did you do with the data in the context of exploration?
+#Craig
 
 ### What did you find? Why does that matter? 
+#Cosimo
 
 ### What would your proposed next steps be? 
+#Noelani Roy 
 
 ### What business problem are you intending to solve using ML with the data?
+#Venus
 
