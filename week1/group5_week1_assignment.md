@@ -58,11 +58,19 @@ Exploratory Data Analysis (EDA) has led us to understand the structure and some 
 
 Figure 1.0  
 
+duplicate_rows_df = df[df.duplicated()]
+print("number of duplicate rows:",duplicate_rows_df.shape)
+
+print(df.isnull().sum())
 
 A Class Imbalance is where an item I am looking for, such as fraud, has an uneven distribution within the dataset. This can cause machine learning algorithms to have a low predictive accuracy. We are at risk of having a Class Imbalance in this dataset, due to the low percentage of identified fraud when compared to the total length of the dataset (shown in Figure 2.0).
 
 Figure 2.0 
 
+isFraudTotal=df['is_fraud'].sum()
+print("Count of Fraud:",isFraudTotal)
+total_rows = df['merchant'].count()
+print("Total Rows:",total_rows)
 
 Our next steps to solve this will be to evaluate the following techniques to correct this imbalance: Over Sampling, Under Sampling, and SMOTE.
 We have also identified some outliers within our dataset, which will need to be removed to ensure the accuracy of our eventual algorithm. Outliers are anything that does not fall within the minimum and maximum range as defined by the following equation.
@@ -75,8 +83,17 @@ To understand our outliers, we must calculate them by column. In this case, I am
 
 Figure 3.0: Transaction Amount 
 
+stats = df['amt'].describe()
+print("Transaction Amount:")
+print(stats)
+df.boxplot(column='amt', figsize=(6, 6))
 
 Figure 4.0: Unix Timeframe  
+
+statstime = df['unix_time'].describe()
+print("Unix Timeframe:")
+print(statstime)
+df.boxplot(column='unix_time', figsize=(6, 6))
 
 
 In the case of transaction amount, I am viewing a significant number of outliers. In the case of my Unix Timeframe, I am not viewing outliers. My next steps here would be to use this information to remove outliers from the amount column. 
