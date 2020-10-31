@@ -104,7 +104,15 @@ git push origin main
 In `git push origin main`:
 
 - origin is the alias of the remote repository. Its short for `git@github.com:cwperks/eai6000_group5.git`
-- `main` is the branch to push to. If you leave out `origin main` that is what git will default to.
+- `main` is the branch to push to. If you leave out `origin main` that is what git will default to. You may also hear developers refer to this branch as `master`. `master` is still the term used in Github enterprise, but it was changed on Github. 
+
+### Full example of git push
+
+```
+git add README.md
+git commit -m "Update README with steps to git push and pull"
+git push origin main
+```
 
 ## Overview
 
