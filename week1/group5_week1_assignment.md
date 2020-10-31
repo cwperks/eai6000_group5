@@ -54,7 +54,34 @@ This is a sample of 1 row with headers explanation:
 #Cosimo
 
 ### What would your proposed next steps be? 
-#Noelani Roy 
+Exploratory Data Analysis (EDA) has led us to understand the structure and some of the content within the dataset. The next steps that we will take will be to clean up and pre-process the data. We will be looking for Missing Values, Anomalies, Duplicates, and a Class Imbalance. Our EDA has shown that we have no missing values or duplicates (Figure 1.0).
+
+Figure 1.0  
+
+
+A Class Imbalance is where an item I am looking for, such as fraud, has an uneven distribution within the dataset. This can cause machine learning algorithms to have a low predictive accuracy. We are at risk of having a Class Imbalance in this dataset, due to the low percentage of identified fraud when compared to the total length of the dataset (shown in Figure 2.0).
+
+Figure 2.0 
+
+
+Our next steps to solve this will be to evaluate the following techniques to correct this imbalance: Over Sampling, Under Sampling, and SMOTE.
+We have also identified some outliers within our dataset, which will need to be removed to ensure the accuracy of our eventual algorithm. Outliers are anything that does not fall within the minimum and maximum range as defined by the following equation.
+
+Equation 1.0
+minimum: ‘Quartile 1’ – 1.5 * (‘Quartile 3’ – ‘Quartile 1’)
+maximum: ‘Quartile 3’ – 1.5 * (‘Quartile 3’ – ‘Quartile 1’)
+
+To understand our outliers, we must calculate them by column. In this case, I am going to evaluate outliers for both the ‘amt’ column, which shows the transaction amount and the ‘unix_time’ column which shows our date range. Using a boxplot, I can visualize my interquartile range and with a df.describe() function, I can see some of the relevant numbers to calculate my outliers.
+
+Figure 3.0: Transaction Amount 
+
+
+Figure 4.0: Unix Timeframe  
+
+
+In the case of transaction amount, I am viewing a significant number of outliers. In the case of my Unix Timeframe, I am not viewing outliers. My next steps here would be to use this information to remove outliers from the amount column. 
+
+After my dataset is suitably clean, I would start laying out my framework for how I am going to develop my algorithm. We are interested in setting up an algorithm for Pattern Recognition, which would detect classes, clusters, and patterns of suspicious behavior. This could help us identify characteristics most often found in fraudulent transactions. 
 
 ### What business problem are you intending to solve using ML with the data?
 #Venus
