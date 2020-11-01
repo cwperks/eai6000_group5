@@ -112,7 +112,20 @@ In this explaratory phase we really just wanted to get acclimated with our datas
 
 
 ### What did you find? Why does that matter? 
-#Cosimo
+To find meaningful information from the data we wanted to explore the data in a manner that could possibly guide us into where to focus our predictive models later in the course. Initially we wanted to see how fraudulent credit card charges related to the features that we have available. The three areas that we looked at were how age was correlated with fraud, how merchant categories were corelated with fraud, and if there was an age range and merchant category combination where fraud was more prevalent. These insights could help us understand where to focus our efforts and how these features are related to each other. Due to the large data set, a sample size of 10% of the data was taken to complete this analysis. 
+
+First, we plotted two frequency distribution histograms to see how the age distribution differed between fraudulent and non-fraudulent credit card transactions. 
+(insert chart)
+Here we can see that for the most part the age distribution of fraudulent charges vs not is similar. However, there is a key spike in fraudulent charges that starts in the 70-79 age range and then in the 80-89 age range.
+
+Next, we looked at the percentage of fraudulent charges across the various merchant categories.
+(insert chart)
+Interestingly there are some categories that had a relatively higher percentage than the others. It is not surprising that online shopping was the most susceptible to fraudulent charges, however it was surprising to see that grocery stores were also high in that chart.
+
+Lastly, we also reviewed the combination of age ranges and merchant categories. In this part we new broke the ages by both ten-year buckets and then into deciles. The 10-year buckets allow us to easily read where age and merchant categories may overlap, however creating deciles, allows for a more focused and even distribution of the data. 
+(Insert charts)
+Reviewing the charts, it is interesting to see how the fraudulent charge percentage changes depending on how the ages are broken out and where the hot spots are. 
+
 
 ### What would your proposed next steps be? 
 Exploratory Data Analysis (EDA) has led us to understand the structure and some of the content within the dataset. The next steps that we will take will be to clean up and pre-process the data. We will be looking for Missing Values, Anomalies, Duplicates, and a Class Imbalance. Our EDA has shown that we have no missing values or duplicates (Figure 1.0).
