@@ -1,11 +1,13 @@
 ### Where did the data come from?
 
-Our dataset comes from [Kaggle](https://www.kaggle.com/ntnu-testimon/paysim1).
+Our dataset comes from [Kaggle](https://www.kaggle.com/kartik2112/fraud-detection).
 
 ### Why did you choose this data? 
 
 We had an hour long zoom meeting to go through a couple contender datasets. The finalists were:
 
+- [Credit Card Transactions Fraud Detection Dataset
+](https://www.kaggle.com/kartik2112/fraud-detection)
 - [Synthetic Financial Datasets For Fraud Detection
 ](https://www.kaggle.com/ntnu-testimon/paysim1)
 - [Top Personality Dataset](https://www.kaggle.com/arslanali4343/top-personality-dataset)
@@ -14,38 +16,73 @@ We had an hour long zoom meeting to go through a couple contender datasets. The 
 - [Crimes in Boston](https://www.kaggle.com/AnalyzeBoston/crimes-in-boston)
 - [National Renewable Energy Laboratory's (NREL) PV Rooftop Database](https://registry.opendata.aws/nrel-oedi-pv-rooftops/)
 
-We ultimately picked the first one on the list because it contains a large number of rows (6,362,620 rows) and we thought we would be able to utilize most or all of the methods presented in the class on the dataset. There is another popular Credit card fraud dataset on Kaggle ([https://www.kaggle.com/mlg-ulb/creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)) that we considered, but the columns in the dataset contain only numerical inputs variables which are the result of a PCA transformation due to confidentiality issues. It would be interesting to try the models and thinking we deploy on the first dataset to the other credit card fraud dataset and see if we can port the model to another dataset successfully. 
+We ultimately picked the first one on the list because it contains 23 columns and a large number of rows (1,296,675 rows) and we thought we would be able to utilize most or all of the methods presented in the class on the dataset. There is another popular Credit card fraud dataset on Kaggle ([https://www.kaggle.com/mlg-ulb/creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)) that we considered, but the columns in the dataset contain only numerical inputs variables which are the result of a PCA transformation due to confidentiality issues. It would be interesting to try the models and thinking we deploy on the first dataset to the other credit card fraud dataset and see if we can port the model to another dataset successfully. 
 
 Our dataset contains:
 
-`step` - maps a unit of time in the real world. In this case 1 step is 1 hour of time. Total steps 744 (30 days simulation).
+|column               |dtype         |
+|---------------------|--------------|
+|`trans_date_trans_time`|object        |
+|`cc_num`               |int64         |
+|`merchant`             |object        |
+|`category`             |object        |
+|`amt`                  |float64       |
+|`first`                |object        |
+|`last`                 |object        |
+|`gender`               |object        |
+|`street`               |object        |
+|`city`                 |object        |
+|`state`                |object        |
+|`zip`                  |int64         |
+|`lat`                  |float64       |
+|`long`                 |float64       |
+|`city_pop`             |int64         |
+|`job`                  |object        |
+|`dob`                  |object        |
+|`trans_num`            |object        |
+|`unix_time`            |int64         |
+|`merch_lat`            |float64       |
+|`merch_long`           |float64       |
+|`is_fraud`             |int64         |
+|`txn_datetime`         |datetime64[ns]|
+|`txn_date`             |object        |
+|`date_of_birth`        |datetime64[ns]|
 
-`type` - CASH-IN, CASH-OUT, DEBIT, PAYMENT and TRANSFER.
-
-`amount` -
-amount of the transaction in local currency.
-
-`nameOrig` - customer who started the transaction
-
-`oldbalanceOrg` - initial balance before the transaction
-
-`newbalanceOrig` - new balance after the transaction
-
-`nameDest` - customer who is the recipient of the transaction
-
-`oldbalanceDest` - initial balance recipient before the transaction. Note that there is not information for customers that start with M (Merchants).
-
-`newbalanceDest` - new balance recipient after the transaction. Note that there is not information for customers that start with M (Merchants).
-
-`isFraud` - This is the transactions made by the fraudulent agents inside the simulation. In this specific dataset the fraudulent behavior of the agents aims to profit by taking control or customers accounts and try to empty the funds by transferring to another account and then cashing out of the system.
-
-`isFlaggedFraud` - The business model aims to control massive transfers from one account to another and flags illegal attempts. An illegal attempt in this dataset is an attempt to transfer more than 200.000 in a single transaction.
 
 This is a sample of 1 row with headers explanation:
 
-| step| type    | amount  | nameOrig   | oldbalanceOrig | newbalanceOrig | nameDest    | oldbalanceDest | newbalanceDest | isFraud | isFlaggedFraud |
-| --- | ------- | ------- | ---------- | -------------- | -------------- | ----------- | -------------- | -------------- | ------- | -------------- |
-| 1   | PAYMENT | 1060.31 | C429214117 | 1089.0         | 28.69          | M1591654462 | 0.0            | 0.0            | 0       | 0              |
+| column                | value                            |
+|:----------------------|:---------------------------------|
+| trans\_date\_trans_time | 2019-01-01 00:00:18            |
+| cc_num                | 2703186189652095                 |
+| merchant              | fraud_Rippin, Kub and Mann       |
+| category              | misc_net                         |
+| amt                   | 4.97                             |
+| first                 | Jennifer                         |
+| last                  | Banks                            |
+| gender                | F                                |
+| street                | 561 Perry Cove                   |
+| city                  | Moravian Falls                   |
+| state                 | NC                               |
+| zip                   | 28654                            |
+| lat                   | 36.0788                          |
+| long                  | -81.1781                         |
+| city_pop              | 3495                             |
+| job                   | Psychologist, counselling        |
+| dob                   | 1988-03-09                       |
+| trans_num             | 0b242abb623afc578575680df30655b9 |
+| unix_time             | 1325376018                       |
+| merch_lat             | 36.011293                        |
+| merch_long            | -82.048315                       |
+| is_fraud              | 0                                |
+| txn_datetime          | 2019-01-01 00:00:18              |
+| date\_of\_birth       | 1988-03-09                       |
+| year\_of\_birth       | 1988                             |
+| txn_date              | 2019-01-01                       |
+
+Not only can we try to predict fraudulent transactions with this dataset, we may also be able to build models around consumer behavior that could be of interest to advertisers. This dataset also contains categories separated from in person and on the net transactions so we may be able to analyze trends in consumer behavior. Along with consumer behavior, this dataset contains data until July this year so we may be able to gather insights into how the pandemic affects consumer behavior. This is simulated data, so I am not sure if the pandemic was incorporated into the synthesis of the data, but that will certainly be an exercise we perform in our exploratory data analysis.
+
+Ultimately, we think this dataset is rich enough for us to deploy the knowledge we learn in this class and utilize all techniques introduced. Furthermore, financial fraud detection is a great example of how Machine Learning is used in the real world and this dataset could be a good avenue into seeing what challenges financial institutions are presented with in keeping their customers safe.
 
 ### What did you do with the data in the context of exploration?
 #Craig
