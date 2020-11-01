@@ -85,7 +85,34 @@ Not only can we try to predict fraudulent transactions with this dataset, we may
 Ultimately, we think this dataset is rich enough for us to deploy the knowledge we learn in this class and utilize all techniques introduced. Furthermore, financial fraud detection is a great example of how Machine Learning is used in the real world and this dataset could be a good avenue into seeing what challenges financial institutions are presented with in keeping their customers safe.
 
 ### What did you do with the data in the context of exploration?
-#Craig
+
+In this explaratory phase we really just wanted to get acclimated with our dataset that we will be using for the next 6 weeks. In the first few analyses performed we analyzed things like:
+
+1) Distribution of the amount of transactions
+
+2) Distribution of the category of transactions
+
+3) Seeing where the transactions took place and plotting on a map using GeoPandas
+
+4) Distribution of the volume of transactions based on gender. It would also be interesting to see total amount spent by gender.
+
+5) Occupation of the highest spenders
+
+6) Volume of transactions by day. Similar to gender it would also be great to see this displayed as dollar amount along with the number of transactions.
+
+7) Age distribution of the spenders in the dataset
+
+8) Number of unique users and merchants in the dataset
+
+9) Merchants with the highest number of transactions and highest dollar amount of transactions
+
+10) Spenders with the highest number of transactions and highest dollar amount of transactions
+
+11) In the training set we identified how many transactions were flagged as fraudulent and it would be good to analyze these cases more in depth for patterns
+
+12) It would be interesting to plot out a consumers path to see patterns in a single users spending habits
+
+13) Based on a single user's spending habits it would be interesting to see if we could predict a big life change such as new occupation, birth of a child, etc.
 
 ### What did you find? Why does that matter? 
 #Cosimo
