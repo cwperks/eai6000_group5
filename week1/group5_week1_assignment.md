@@ -101,5 +101,9 @@ In the case of transaction amount, I am viewing a significant number of outliers
 After my dataset is suitably clean, I would start laying out my framework for how I am going to develop my algorithm. We are interested in setting up an algorithm for Pattern Recognition, which would detect classes, clusters, and patterns of suspicious behavior. This could help us identify characteristics most often found in fraudulent transactions. 
 
 ### What business problem are you intending to solve using ML with the data?
-#Venus
+1. Which features are highly correlated to credit card fraud? 
+Correlation matrix and regression models will be used to find out which features, such as gender, age and state, have strong correlations with the target variable is_fraud, which can provide banks more details about which group of people might be the target in credit card fraud.
+
+2. To predict whether the user's credit card will be frauded or not. 
+Tree-based models, such as random forest, decision tree and gradient boosting models, and neural networks will be applied to predict the accuracy of target variable is_fraud. We will also compare and seek the best performance among these predictive models by using different Machine Learning Algorithms. 
 
