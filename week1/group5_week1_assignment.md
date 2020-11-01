@@ -110,9 +110,6 @@ In this explaratory phase we really just wanted to get acclimated with our datas
 
 11) In the training set we identified how many transactions were flagged as fraudulent and it would be good to analyze these cases more in depth for patterns
 
-12) It would be interesting to plot out a consumers path to see patterns in a single users spending habits
-
-13) Based on a single user's spending habits it would be interesting to see if we could predict a big life change such as new occupation, birth of a child, etc.
 
 ### What did you find? Why does that matter? 
 #Cosimo
@@ -162,7 +159,9 @@ df.boxplot(column='unix_time', figsize=(6, 6))
 
 In the case of transaction amount, I am viewing a significant number of outliers. In the case of my Unix Timeframe, I am not viewing outliers. My next steps here would be to use this information to remove outliers from the amount column. 
 
-After my dataset is suitably clean, I would start laying out my framework for how I am going to develop my algorithm. We are interested in setting up an algorithm for Pattern Recognition, which would detect classes, clusters, and patterns of suspicious behavior. This could help us identify characteristics most often found in fraudulent transactions. 
+After my dataset is suitably clean, I would start laying out my framework for how I am going to develop my algorithm. We are interested in setting up an algorithm for Pattern Recognition, which would detect classes, clusters, and patterns of suspicious behavior. This could help us identify characteristics most often found in fraudulent transactions and patterns in consumer spending. 
+
+We could plot out a consumers path to see patterns in a single users spending habits. Based on a single user's spending habits it would be interesting to see if we could predict a big life change such as new occupation, birth of a child, etc.
 
 ### What business problem are you intending to solve using ML with the data?
 1. Which features are highly correlated to credit card fraud? 
